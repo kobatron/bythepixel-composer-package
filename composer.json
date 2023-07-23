@@ -24,7 +24,9 @@
       "ByThePixel\\Test\\": "tests/"
     }
   },
-  "require": {},
+  "require": {
+    "guzzlehttp/guzzle": "^7.2"
+  },
   "extra": {
     "laravel": {
       "providers": [

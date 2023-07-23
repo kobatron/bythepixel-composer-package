@@ -20,6 +20,7 @@ class ServiceProvider extends BaseServiceProvider{
 	public function boot(){
 
 		$this->bootConfig();
+		$this->bootRoutes();
 
 	}
 
@@ -29,7 +30,9 @@ class ServiceProvider extends BaseServiceProvider{
 	 * @return void
 	 */
 	public function register(){
-
+		$this->app->singleton(Client::class, function ($app) {
+			return new Client();
+		});
 	}
 
 
@@ -37,8 +40,16 @@ class ServiceProvider extends BaseServiceProvider{
 	 * @internal
 	 */
 	private function bootConfig(){
-		$this->publishes([__DIR__ . '/../config/main.php' => config_path(SELF::SHORT_NAME . '.php')], 'config');
-		$this->mergeConfigFrom(__DIR__ . '/../config/main.php', SELF::SHORT_NAME);
+		$this->publishes([__DIR__ . '/../config/main.php' => config_path(self::SHORT_NAME . '.php')], 'config');
+		$this->mergeConfigFrom(__DIR__ . '/../config/main.php', self::SHORT_NAME);
 	}
-
+	
+	/**
+	 * @internal
+	 */
+	private function bootRoutes()
+	{
+		$this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
+	}
+	
 }
