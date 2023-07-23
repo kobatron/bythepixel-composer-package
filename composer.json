@@ -1,0 +1,36 @@
+{
+  "name": "by-the-pixel/weather-challenge",
+  "description": "Laravel package boilerplate.",
+  "keywords": [
+    "laravel",
+    "package"
+  ],
+  "type": "laravel",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tarek Adam",
+      "email": "tarek@fuqu.io"
+    }
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "ByThePixel\\WeatherChallenge\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ByThePixel\\Test\\": "tests/"
+    }
+  },
+  "require": {},
+  "extra": {
+    "laravel": {
+      "providers": [
+        "ByThePixel\\WeatherChallenge\\ServiceProvider",
+        "ByThePixel\\WeatherChallenge\\EventServiceProvider"
+      ]
+    }
+  }
+}
