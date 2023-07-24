@@ -4,7 +4,7 @@ namespace ByThePixel\WeatherChallenge;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model implements Contract
+class User extends Model implements ModelContract
 {
 	
 	private static $visable = [

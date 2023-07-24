@@ -2,8 +2,7 @@
 
 namespace ByThePixel\WeatherChallenge\Test;
 
-use ByThePixel\WeatherChallenge\User;
-use Illuminate\Support\Facades\Cache;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 
 /**
@@ -11,7 +10,9 @@ use Tests\TestCase;
  */
 class ControllerTest extends TestCase
 {
-	
+
+    use DatabaseTransactions;
+
 	/**
 	 * @see \ByThePixel\WeatherChallenge\Controller
 	 * @test

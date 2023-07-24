@@ -7,9 +7,9 @@ use Tests\TestCase;
 /**
  * @see \ByThePixel\WeatherChallenge\Client
  */
-class ClientTest extends TestCase 
+class ClientTest extends TestCase
 {
-
+	
 	/**
 	 * I name my tests so that they are readable in the test output,
 	 * as opposed to CamelCase.  This is also nice to separate it
@@ -30,8 +30,9 @@ class ClientTest extends TestCase
 	 * @see \ByThePixel\WeatherChallenge\Client
 	 * @test
 	 */
-	public function WeatherChallenge_client_gets_weather(){
-		$client = new \ByThePixel\WeatherChallenge\Client();
+	public function WeatherChallenge_client_gets_weather()
+	{
+		$client  = new \ByThePixel\WeatherChallenge\Client();
 		$weather = $client->getWeather(40.7128, 74.0060);
 		$this->assertIsArray($weather);
 		$this->assertArrayHasKey('main', $weather);

@@ -5,8 +5,10 @@ namespace ByThePixel\WeatherChallenge\Test;
 use ByThePixel\WeatherChallenge\Client;
 use ByThePixel\WeatherChallenge\Job;
 use ByThePixel\WeatherChallenge\User;
+use ByThePixel\WeatherChallenge\UserWeatherUpdateEvent;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Queue;
 use Tests\TestCase;
 
@@ -26,8 +28,11 @@ class JobTest extends TestCase
 		$user   = User::firstOrFail();
 		$guzzel = App::make(Client::class);
 		
+		
+		Event::fake(UserWeatherUpdateEvent::class);
 		$job = new \ByThePixel\WeatherChallenge\Job($user);
 		$job->handle($guzzel);
+		Event::assertDispatched(UserWeatherUpdateEvent::class);
 	}
 	
 	/**

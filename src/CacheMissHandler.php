@@ -15,18 +15,19 @@ class CacheMissHandler
 	{
 		//
 	}
-	
+
 	/**
 	 * Handle the event.
 	 */
 	public function handle(CacheMissed $event): void
 	{
+
 		try{
 			$user = User::findOrFailByCacheKey($event->key);
 		}catch(\Exception $e){
 			return;
 		}
-		
+
 		Job::dispatch($user);
 	}
 }

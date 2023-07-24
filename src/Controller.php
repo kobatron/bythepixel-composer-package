@@ -20,18 +20,16 @@ class Controller extends BaseController
 		$cache_keys = $users
 			->pluck('cache_key')
 			->toArray();
-		
-		if(!Cache::has($cache_keys)){
-			foreach($users as $user){
-				Job::dispatch($user)
-				   ->afterResponse();
-			}
-		}else{
-			foreach(Cache::many($cache_keys) as $data){
-				UserWeatherUpdateEvent::dispatch($data);
-			}
-		}
-		
+
+
+        foreach(Cache::many($cache_keys) as $data){
+            if(empty($data)){
+                continue;
+            }
+            UserWeatherUpdateEvent::dispatch($data);
+        }
+
+
 		return response()
 			->json(['success' => true, 'message' => 'Weather updates dispatched.']);
 	}
