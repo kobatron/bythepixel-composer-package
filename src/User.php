@@ -8,6 +8,7 @@ class User extends Model implements ModelContract
 {
 	
 	private static $visable = [
+		'cache_key',
 		'name',
 		'latitude',
 		'longitude',
@@ -39,6 +40,7 @@ class User extends Model implements ModelContract
 	public function toArray()
 	{
 		$attributes = parent::toArray();
+		$attributes['cache_key'] = $this->cache_key;
 		$attributes = array_intersect_key($attributes, array_flip(self::$visable));
 		
 		return $attributes;

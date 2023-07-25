@@ -52,7 +52,7 @@ class Job implements ShouldQueue
 		if(!empty($response)){
 			$locus = config(ServiceProvider::SHORT_NAME . '.locus');
 			$ttl   = config(ServiceProvider::SHORT_NAME . '.ttl');
-			$data  = [];
+			$data  = $this->user->toArray();
 			foreach($locus as $key => $nice){
 				$value       = data_get($response, $key);
 				$data[$nice] = $value;

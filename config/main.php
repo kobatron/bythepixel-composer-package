@@ -11,6 +11,7 @@ return [
 
 	'ttl'   => 59 /* *60 */,
 	'locus' => [
+		'weather.0.id'          => 'wid',
 		'weather.0.main'        => 'label',
 		'weather.0.description' => 'description',
 		'main.temp'             => 'temperature',
