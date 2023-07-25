@@ -10,6 +10,6 @@ Add repo section to composer.json
         }
     ],
 ```
-Install
+
 ```composer require by-the-pixel/weather-challenge dev-master```
 
