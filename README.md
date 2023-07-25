@@ -1,4 +1,7 @@
-# bythepixel-weather-challenge
+# Submission Dependancy
+This package is already composer'd into my submission.  Just run composer install on the other repo.
+
+## bythepixel-weather-challenge
 PHP package for openweathermap.org
 
 Add repo section to composer.json
